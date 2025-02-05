@@ -1,5 +1,4 @@
 from fastapi import FastAPI
-import requests
 from props import error_reponse, is_prime, is_perfect, is_armstrong, is_even, digit_sum, fun_fact
 
 app = FastAPI()
