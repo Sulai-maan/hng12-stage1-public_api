@@ -1,6 +1,12 @@
 import requests
 from functools import reduce
 
+def is_even(n: int) -> str:
+   if n % 2:
+      return "odd"
+   else:
+      return "even"
+   
 def is_prime(n: int) -> bool:
    n = abs(n)
    if n == 2:
@@ -32,3 +38,8 @@ def fun_fact(n: int) -> str:
        return response.text
     else:
        return "bad request"
+    
+error_reponse = {
+   "number": "alphabet",
+    "error": True
+}

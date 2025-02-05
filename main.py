@@ -1,19 +1,26 @@
 from fastapi import FastAPI
 import requests
+from props import error_reponse, is_prime, is_perfect, is_armstrong, is_even, digit_sum, fun_fact
 
 app = FastAPI()
 
 @app.get("/api/classify-number/{number}")
 async def get(number):
     #do some edge checking
-    if any(n != )
+    if "." in number:
+        return error_reponse
     try:
         number = int(number)
-    if isinstance(number, int):
-        fun_fact = requests.get(f"http://numbersapi.com/{number}/math").text
-    else:
-        response = {
-            "number": "alphabet",
-            ""
-                    }
-        return 
+    except:
+        return error_reponse
+    
+    response_dict = {
+        "number": number,
+        "is_prime": is_prime(number),
+        "is_perfect": is_perfect(number),
+        "properties": (["armstrong"] if is_armstrong(number) else []) + [is_even(number)],
+        "digit_sum": digit_sum(number),
+        "fun_fact": fun_fact(number)
+    }
+
+    return response_dict
