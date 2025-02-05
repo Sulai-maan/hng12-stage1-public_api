@@ -1,7 +1,7 @@
 import requests
 from functools import reduce
 
-def is_even(n: int) -> str:
+def is_even_or_odd(n: int) -> str:
    if n % 2:
       return "odd"
    else:
