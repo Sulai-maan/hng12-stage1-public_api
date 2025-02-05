@@ -20,7 +20,7 @@ def digit_sum(n: int) -> bool:
     digits = [int(i) for i in str(abs(n))]
     return sum(digits) == n
 
-def is_armstrong(n: int) -> bool:
+def is_armstrong(n: int) -> int:
     power = len(n)
     digits = [int(i)**power for i in str(abs(n))]
     return sum(digits)
@@ -30,3 +30,5 @@ def fun_fact(n: int) -> str:
     
     if response.status_code == 200:
        return response.text
+    else:
+       return "bad request"

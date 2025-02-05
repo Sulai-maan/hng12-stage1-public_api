@@ -6,4 +6,14 @@ app = FastAPI()
 @app.get("/api/classify-number/{number}")
 async def get(number):
     #do some edge checking
-    fun_fact = requests.get(f"http://numbersapi.com/{number}/math").text
+    if any(n != )
+    try:
+        number = int(number)
+    if isinstance(number, int):
+        fun_fact = requests.get(f"http://numbersapi.com/{number}/math").text
+    else:
+        response = {
+            "number": "alphabet",
+            ""
+                    }
+        return 
