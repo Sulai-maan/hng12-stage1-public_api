@@ -12,13 +12,12 @@ def is_even_or_odd(n: int) -> str:
       return "even"
    
 def is_prime(n: int) -> bool:
-#    n = abs(n)
    if n == 2:
       return True
    elif n < 2 or not n % 2:
       return False
    else:
-      return any((not n % i) for i in range(3, int(n**0.5) + 1, 2))
+      return not any((not n % i) for i in range(3, int(n**0.5) + 1, 2))
 
 def is_perfect(n: int) -> bool:
     if n < 6:
