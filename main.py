@@ -1,15 +1,26 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Response, status
+from fastapi.middleware.cors import CORSMiddleware
 from props import error_reponse, is_prime, is_perfect, is_armstrong, is_even_or_odd, digit_sum, get_fun_fact
 
 app = FastAPI()
 
-@app.get("/api/classify-number/{number}")
-async def get(number):
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=False,
+    allow_methods=["Get"],
+    allow_headers=["*"]
+)
+
+@app.get("/api/classify-number/{number}", status_code=200)
+async def get(number, response: Response):
     if "." in number:
+        response.status_code = status.HTTP_400_BAD_REQUEST
         return error_reponse
     try:
         number = int(number)
     except:
+        response.status_code = status.HTTP_400_BAD_REQUEST
         return error_reponse
     
     response_dict = {

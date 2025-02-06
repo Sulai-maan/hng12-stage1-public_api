@@ -1,6 +1,10 @@
 import requests
 from functools import reduce
 
+numbers_api_addr = "http://numbersapi.com"
+numbers_api_type = "math"
+
+
 def is_even_or_odd(n: int) -> str:
    if n % 2:
       return "odd"
@@ -39,7 +43,7 @@ def is_armstrong(n: int) -> int:
     return sum(digits) == n
 
 def get_fun_fact(n: int) -> str:
-    response = requests.get(f"http://numbersapi.com/{n}/math")
+    response = requests.get(f"{numbers_api_addr}/{n}/{numbers_api_type}")
     
     if response.status_code == 200:
        return response.text
