@@ -38,7 +38,6 @@ def digit_sum(n: int) -> int:
 def is_armstrong(n: int) -> int:
     
     power = len(str(n))
-    print(power)
     digits = [int(i)**power for i in str(abs(n))]
     return sum(digits) == n
 
