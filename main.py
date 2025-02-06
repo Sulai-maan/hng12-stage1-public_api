@@ -12,6 +12,12 @@ app.add_middleware(
     allow_headers=["*"]
 )
 
+
+@app.get("/api/classify-number/", status_code=400)
+async def missing_number():
+    return error_reponse
+
+
 @app.get("/api/classify-number/{number}", status_code=200)
 async def get(number, response: Response):
     if "." in number:
