@@ -35,7 +35,7 @@ def digit_sum(n: int) -> int:
     return sum(digits)
 
 def is_armstrong(n: int) -> int:
-    power = len(str(n))
+    power = len(str(n).strip("-"))
     digits = [int(i)**power for i in str(abs(n))]
     return sum(digits) == n
 
@@ -48,6 +48,5 @@ def get_fun_fact(n: int) -> str:
        return "bad request"
     
 error_reponse = {
-   "number": "alphabet",
     "error": True
 }

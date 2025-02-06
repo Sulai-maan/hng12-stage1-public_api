@@ -12,18 +12,8 @@ app.add_middleware(
     allow_headers=["*"]
 )
 
-
-# @app.get("/api/classify-number/", status_code=400)
-# async def missing_number():
-#     error_reponse["number"] = ""
-#     return error_reponse
-
-
 @app.get("/api/classify-number/", status_code=200)
-async def get(response: Response, number=None):
-    # if not number or not isinstance(number, int):
-    #     error_reponse["number"] = number
-    
+async def get(response: Response, number=None):    
     if "." in number or not number:
         error_reponse["number"] = number
         response.status_code = status.HTTP_400_BAD_REQUEST
