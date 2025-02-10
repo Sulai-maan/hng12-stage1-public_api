@@ -14,7 +14,7 @@ app.add_middleware(
 
 @app.get("/api/classify-number/", status_code=200)
 async def get(response: Response, number=None):    
-    if "." in number or not number:
+    if not number or "." in number:
         error_reponse["number"] = number
         response.status_code = status.HTTP_400_BAD_REQUEST
         return error_reponse
